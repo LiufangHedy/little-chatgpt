@@ -1,0 +1,15 @@
+
+#app {
+  width: 100%;
+  box-sizing: border-box;
+}
+.hljs {
+  display: block;
+  overflow-x: auto;
+  /* max-height: 400px;  */
+  /* Adjust the maximum height as needed */
+  padding: 0.5em;
+  border-radius: 0.25rem;
+  background: #f8f8f8;
+  color: #333;
+}
