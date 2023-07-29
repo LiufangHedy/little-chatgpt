@@ -11,7 +11,7 @@
     <div></div>
   </div>
 </template>
-<script></script>
+<script setup lang="ts"></script>
 <style scoped>
 .loading {
   width: 17px;

@@ -49,7 +49,7 @@ import cryptoJS from "crypto-js";
 import { ChatMessage } from "@/types/gpt";
 import { chat } from "@/libs/gpt";
 import { md } from "@/libs/markdown";
-import myLoading from "@/components/loading.vue";
+import myLoading from "@/components/Loading.vue";
 import MyCopy from "@/components/Copy.vue";
 
 let apiKey = "";
