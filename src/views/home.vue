@@ -56,7 +56,7 @@ let apiKey = "";
 const roleAlias = { user: "ME", assistant: "ChatGPT", system: "System" };
 let isConfig = ref(true);
 let isTalking = ref(false);
-console.log(isConfig);
+// console.log(isConfig);
 let messageContent = ref("");
 const decoder = new TextDecoder("utf-8");
 
@@ -84,7 +84,7 @@ let messageListComputed = computed(() =>
 );
 
 onMounted(() => {
-  console.log("in mounted");
+  // console.log("in mounted");
 
   if (getAPIKey()) {
     changeConfigStatus();
@@ -123,16 +123,16 @@ function sendChatMessage(content: string = messageContent.value) {
   chat(messageList.value, getAPIKey())
     .then(async ({ body, status }) => {
       // 无论请求是否成功，都会返回一个结果，所以要判断状态码是否是200
-      console.log("chatgpt returns the result: ", body, status);
+      // console.log("chatgpt returns the result: ", body, status);
       if (body) {
         const reader = body.getReader();
-        console.log("readerrrrr: ", reader, body);
+        // console.log("readerrrrr: ", reader, body);
         await readStream(reader, status);
-        console.log("chatList: ", chatListDOM.value);
+        // console.log("chatList: ", chatListDOM.value);
       }
     })
     .catch((err) => {
-      console.log("chatgpt error: ", err);
+      // console.log("chatgpt error: ", err);
       appendLastMessageContent(err);
     })
     .finally(() => {
@@ -149,12 +149,12 @@ async function readStream(
   while (true) {
     // eslint-disable-next-line no-await-in-loop
     const { value, done } = await reader.read();
-    console.log("valueeee: ", value, "doneeee: ", done);
+    // console.log("valueeee: ", value, "doneeee: ", done);
 
     if (done) break;
 
     const decodedText = decoder.decode(value, { stream: true });
-    console.log("decodedText: ", decodedText);
+    // console.log("decodedText: ", decodedText);
     if (status !== 200) {
       const json = JSON.parse(decodedText); // start with "data: "
       const content = json.error.message ?? decodedText;

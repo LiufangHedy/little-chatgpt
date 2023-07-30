@@ -34,9 +34,9 @@ import type { Theme } from "@icon-park/vue-next/lib/runtime";
 import { log } from "console";
 import { ref } from "vue";
 
-console.log("copy: ", Copy);
-console.log("Loading: ", Loading);
-console.log("CheckOne: ", CheckOne);
+// console.log("copy: ", Copy);
+// console.log("Loading: ", Loading);
+// console.log("CheckOne: ", CheckOne);
 
 const props = defineProps<{ content: string }>();
 const btnConfig: {
@@ -61,11 +61,11 @@ function copyToClipboard(content: string = props.content) {
   navigator.clipboard
     .writeText(content)
     .then((res) => {
-      console.log("copied: ", res);
+      // console.log("copied: ", res);
       setTimeout(() => (btnStatus.value = "success"), 150);
     })
     .catch((err) => {
-      console.log("copy failed: ", err);
+      // console.log("copy failed: ", err);
       btnStatus.value = "error";
     })
     .finally(() => {

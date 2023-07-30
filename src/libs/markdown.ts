@@ -8,12 +8,12 @@ const mdOptions: Markdown.Options = {
   langPrefix: "language-",
   // 代码高亮
   highlight(str, lang) {
-    console.log('thisssssssssssss: ', this);
-    console.log('mdmdmdmdmd:', md, md===this);
+    // console.log('thisssssssssssss: ', this);
+    // console.log('mdmdmdmdmd:', md, md===this);
     
     
     if (lang && highlight.getLanguage(lang)) {
-      console.log('highlight: ', str,'-----',lang);
+      // console.log('highlight: ', str,'-----',lang);
       try {
         return (
           '<pre class="hljs"><code>' +
@@ -22,7 +22,7 @@ const mdOptions: Markdown.Options = {
         );
       } catch (__) {}
     }
-    console.log('no lang!!!!', str);
+    // console.log('no lang!!!!', str);
     // return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`;
     // even though not 'lang', we should return the default highlight code, escapeHtml函数对html进行转义
     return `<pre class="hljs"><code>${md.utils.escapeHtml(str)}</code></pre>`; // testing
